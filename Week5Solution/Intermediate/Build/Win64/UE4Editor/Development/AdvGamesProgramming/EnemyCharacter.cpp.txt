@@ -1,0 +1,41 @@
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
+c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\EnemyCharacter.h
+c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\NavigationNode.h
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\NavigationNode.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\AIManager.h
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\AIManager.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\Perception/AIPerceptionComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\GenericTeamAgentInterface.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\GenericTeamAgentInterface.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\Perception/AIPerceptionTypes.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\AITypes.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\NavigationSystem\Public\NavFilters/NavigationQueryFilter.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\NavigationSystem\Public\NavAreas/NavArea.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\AI/Navigation/NavAreaBase.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavAreaBase.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavArea.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\NavigationSystem\NavigationQueryFilter.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\NavigationSystem\Public\NavigationSystemTypes.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\AI/NavigationSystemConfig.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavigationSystemConfig.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AITypes.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIPerceptionTypes.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\Perception/AISense.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISense.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\Perception/AIPerceptionSystem.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\AISubsystem.h
+c:\program files\epic games\ue_4.24\engine\source\runtime\aimodule\classes\AISystem.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\AI/AISystemBase.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AISystemBase.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISystem.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISubsystem.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIPerceptionSystem.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIPerceptionComponent.generated.h
+c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\HealthComponent.h
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\HealthComponent.generated.h
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\EnemyCharacter.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Public\EngineUtils.h

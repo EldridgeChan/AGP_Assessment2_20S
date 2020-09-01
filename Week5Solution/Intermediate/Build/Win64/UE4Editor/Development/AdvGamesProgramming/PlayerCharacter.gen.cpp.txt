@@ -1,0 +1,9 @@
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Source\AdvGamesProgramming/PlayerCharacter.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\intermediate\build\win64\ue4editor\inc\advgamesprogramming\PlayerCharacter.generated.h
