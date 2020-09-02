@@ -1,10 +1,10 @@
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\AIManager.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\NavigationNode.h
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\NavigationNode.generated.h
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\AIManager.generated.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\AIManager.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\NavigationNode.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\NavigationNode.generated.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\AIManager.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Public\EngineUtils.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\EnemyCharacter.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\EnemyCharacter.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
@@ -29,13 +29,13 @@ C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\Perce
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISense.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\Perception/AIPerceptionSystem.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\AISubsystem.h
-c:\program files\epic games\ue_4.24\engine\source\runtime\aimodule\classes\AISystem.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\AIModule\Classes\AISystem.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\AI/AISystemBase.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AISystemBase.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISystem.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AISubsystem.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIPerceptionSystem.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIPerceptionComponent.generated.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\HealthComponent.h
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\HealthComponent.generated.h
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\EnemyCharacter.generated.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\HealthComponent.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\HealthComponent.generated.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\EnemyCharacter.generated.h

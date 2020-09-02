@@ -1,10 +1,10 @@
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\PlayerCharacter.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\PlayerCharacter.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\PlayerCharacter.generated.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\PlayerCharacter.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementComponent.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\AI/Navigation/NavigationAvoidanceTypes.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavigationAvoidanceTypes.generated.h

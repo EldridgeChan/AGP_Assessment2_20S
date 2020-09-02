@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Eldridge\\UTS\\sem4\\Advanced_Games_Programing\\Assessment\\Assessment2\\Week5Solution\\Week5Solution\\Source\\AdvGamesProgramming\\AdvGamesProgramming.Build.cs",
-		"C:\\Eldridge\\UTS\\sem4\\Advanced_Games_Programing\\Assessment\\Assessment2\\Week5Solution\\Week5Solution\\Source\\AdvGamesProgramming.Target.cs",
-		"C:\\Eldridge\\UTS\\sem4\\Advanced_Games_Programing\\Assessment\\Assessment2\\Week5Solution\\Week5Solution\\Source\\AdvGamesProgrammingEditor.Target.cs"
+		"C:\\Assignment 2\\Week5Solution\\Source\\AdvGamesProgramming\\AdvGamesProgramming.Build.cs",
+		"C:\\Assignment 2\\Week5Solution\\Source\\AdvGamesProgramming.Target.cs",
+		"C:\\Assignment 2\\Week5Solution\\Source\\AdvGamesProgrammingEditor.Target.cs"
 	],
 	"EngineVersion": "4.24.3"
 }

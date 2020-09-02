@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "AdvGamesProgramming",
-			"Path": "C:\\Eldridge\\UTS\\sem4\\Advanced_Games_Programing\\Assessment\\Assessment2\\Week5Solution\\Week5Solution\\Source\\AdvGamesProgramming.Target.cs",
+			"Path": "C:\\Assignment 2\\Week5Solution\\Source\\AdvGamesProgramming.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "AdvGamesProgrammingEditor",
-			"Path": "C:\\Eldridge\\UTS\\sem4\\Advanced_Games_Programing\\Assessment\\Assessment2\\Week5Solution\\Week5Solution\\Source\\AdvGamesProgrammingEditor.Target.cs",
+			"Path": "C:\\Assignment 2\\Week5Solution\\Source\\AdvGamesProgrammingEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

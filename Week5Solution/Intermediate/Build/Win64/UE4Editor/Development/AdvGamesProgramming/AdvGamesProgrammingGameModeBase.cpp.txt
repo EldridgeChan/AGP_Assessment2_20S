@@ -1,7 +1,7 @@
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\AdvGamesProgrammingGameModeBase.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\AdvGamesProgrammingGameModeBase.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\AdvGamesProgrammingGameModeBase.generated.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\AdvGamesProgrammingGameModeBase.generated.h

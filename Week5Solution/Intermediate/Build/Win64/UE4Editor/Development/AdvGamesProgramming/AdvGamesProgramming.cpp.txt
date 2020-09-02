@@ -1,2 +1,2 @@
-C:\Eldridge\UTS\sem4\Advanced_Games_Programing\Assessment\Assessment2\Week5Solution\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
-c:\eldridge\uts\sem4\advanced_games_programing\assessment\assessment2\week5solution\week5solution\source\advgamesprogramming\AdvGamesProgramming.h
+C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
+C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\AdvGamesProgramming.h
