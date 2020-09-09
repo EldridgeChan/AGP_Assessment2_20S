@@ -1,3 +1,0 @@
-C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Development\AdvGamesProgramming\Definitions.AdvGamesProgramming.h
-C:\Assignment 2\Week5Solution\Source\AdvGamesProgramming\HealthComponent.h
-C:\Assignment 2\Week5Solution\Intermediate\Build\Win64\UE4Editor\Inc\AdvGamesProgramming\HealthComponent.generated.h
