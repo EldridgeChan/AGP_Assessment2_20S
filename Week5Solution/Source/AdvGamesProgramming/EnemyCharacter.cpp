@@ -24,6 +24,7 @@ void AEnemyCharacter::BeginPlay()
 	HealthComponent = FindComponentByClass<UHealthComponent>();
 	DetectedActor = nullptr;
 	bCanSeeActor = false;
+	bCanHearActor = false;
 }
 
 // Called every frame
@@ -106,10 +107,12 @@ void AEnemyCharacter::AgentEngage()
 void AEnemyCharacter::AgentEvade()
 {
 	
-	if (bCanSeeActor)
+	if (bCanHearActor || bCanSeeActor)
 	{
 		FVector DirectionToTarget = DetectedActor->GetActorLocation() - GetActorLocation();
-		Fire(DirectionToTarget);
+		if (bCanSeeActor) {
+			Fire(DirectionToTarget);
+		}
 		if (Path.Num() == 0)
 		{
 			Path = Manager->GeneratePath(CurrentNode, Manager->FindFurthestNode(DetectedActor->GetActorLocation()));
@@ -124,11 +127,13 @@ void AEnemyCharacter::SensePlayer(AActor* SensedActor, FAIStimulus Stimulus)
 		UE_LOG(LogTemp, Warning, TEXT("Player currently detected at %s"), *SensedActor->GetActorLocation().ToString()) // + player location
 		DetectedActor = SensedActor;
 		bCanSeeActor = true;
+		bCanHearActor = false;
 	}
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Player last detected at %s"), *SensedActor->GetActorLocation().ToString())
 		bCanSeeActor = false;
+		bCanHearActor = false;
 	}
 }
 

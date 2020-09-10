@@ -58,6 +58,9 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	bool bCanSeeActor;
 
+	UPROPERTY(VisibleAnywhere)
+		bool bCanHearActor;
+
 	UHealthComponent* HealthComponent;
 
 	UFUNCTION()
