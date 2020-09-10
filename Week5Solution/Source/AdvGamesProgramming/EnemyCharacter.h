@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "NavigationNode.h"
+
+#include "PlayerCharacter.h"
 #include "GameFramework/Character.h"
 #include "AIManager.h"
 #include "Perception/AIPerceptionComponent.h"
@@ -41,6 +43,10 @@ public:
 	ANavigationNode* CurrentNode;
 	UPROPERTY(VisibleAnywhere)
 	AAIManager* Manager;
+
+	UPROPERTY(VisibleAnywhere)
+		APlayerCharacter* Player;
+
 
 	UPROPERTY(VisibleAnywhere)
 	UAIPerceptionComponent* PerceptionComponent;

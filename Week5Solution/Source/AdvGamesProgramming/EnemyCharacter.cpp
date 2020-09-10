@@ -121,13 +121,13 @@ void AEnemyCharacter::SensePlayer(AActor* SensedActor, FAIStimulus Stimulus)
 {
 	if (Stimulus.WasSuccessfullySensed())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Detected"))
+		UE_LOG(LogTemp, Warning, TEXT("Player currently detected at %s"), *SensedActor->GetActorLocation().ToString()) // + player location
 		DetectedActor = SensedActor;
 		bCanSeeActor = true;
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Lost"))
+		UE_LOG(LogTemp, Warning, TEXT("Player last detected at %s"), *SensedActor->GetActorLocation().ToString())
 		bCanSeeActor = false;
 	}
 }
