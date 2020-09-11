@@ -11,11 +11,12 @@
 #include "EnemyCharacter.generated.h"
 
 UENUM()
-enum class AgentState : uint8 
+enum class AgentState : uint8
 {
 	PATROL,
 	ENGAGE,
-	EVADE
+	EVADE,
+
 };
 
 UCLASS()

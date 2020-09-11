@@ -3,6 +3,7 @@
 
 #include "EnemyCharacter.h"
 #include "EngineUtils.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 AEnemyCharacter::AEnemyCharacter()
@@ -31,7 +32,7 @@ void AEnemyCharacter::BeginPlay()
 void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	/*
+	
 	if (CurrentAgentState == AgentState::PATROL)
 	{
 		AgentPatrol();
@@ -73,7 +74,7 @@ void AEnemyCharacter::Tick(float DeltaTime)
 		}
 	}
 	MoveAlongPath();
-	*/
+	
 }
 
 // Called to bind functionality to input
@@ -93,10 +94,13 @@ void AEnemyCharacter::AgentPatrol()
 
 void AEnemyCharacter::AgentEngage()
 {
-	if (bCanSeeActor)
+	if (bCanSeeActor || bCanHearActor)
 	{
 		FVector DirectionToTarget = DetectedActor->GetActorLocation() - GetActorLocation();
-		Fire(DirectionToTarget);
+		if (bCanSeeActor) 
+		{
+			Fire(DirectionToTarget);
+		}
 		if (Path.Num() == 0)
 		{
 			Path = Manager->GeneratePath(CurrentNode, Manager->FindNearestNode(DetectedActor->GetActorLocation()));
@@ -105,15 +109,14 @@ void AEnemyCharacter::AgentEngage()
 	
 }
 
+
 void AEnemyCharacter::AgentEvade()
 {
 	
-	if (bCanHearActor || bCanSeeActor)
+	if (bCanSeeActor)
 	{
 		FVector DirectionToTarget = DetectedActor->GetActorLocation() - GetActorLocation();
-		if (bCanSeeActor) {
-			Fire(DirectionToTarget);
-		}
+		//Fire(DirectionToTarget);
 		if (Path.Num() == 0)
 		{
 			Path = Manager->GeneratePath(CurrentNode, Manager->FindFurthestNode(DetectedActor->GetActorLocation()));
@@ -128,7 +131,7 @@ void AEnemyCharacter::SensePlayer(AActor* SensedActor, FAIStimulus Stimulus)
 		UE_LOG(LogTemp, Warning, TEXT("Player currently detected at %s"), *SensedActor->GetActorLocation().ToString()) // + player location
 		DetectedActor = SensedActor;
 		bCanSeeActor = true;
-		bCanHearActor = false;
+		bCanHearActor = true;
 	}
 	else
 	{
