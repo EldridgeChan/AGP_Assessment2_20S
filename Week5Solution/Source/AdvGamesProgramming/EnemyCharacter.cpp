@@ -33,6 +33,7 @@ void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+	//Enemy in patrol state
 	if (CurrentAgentState == AgentState::PATROL)
 	{
 		AgentPatrol();
@@ -47,6 +48,7 @@ void AEnemyCharacter::Tick(float DeltaTime)
 			Path.Empty();
 		}
 	}
+	//Enemy in engage state
 	else if (CurrentAgentState == AgentState::ENGAGE)
 	{
 		AgentEngage();
@@ -60,6 +62,7 @@ void AEnemyCharacter::Tick(float DeltaTime)
 			Path.Empty();
 		}
 	}
+	//Enemy in evade state
 	else if (CurrentAgentState == AgentState::EVADE)
 	{
 		AgentEvade();
@@ -84,6 +87,7 @@ void AEnemyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 }
 
+//Enemy patrol if no player character in sight
 void AEnemyCharacter::AgentPatrol()
 {
 	if (Path.Num() == 0 && Manager != NULL)
@@ -92,6 +96,7 @@ void AEnemyCharacter::AgentPatrol()
 	}
 }
 
+//Enemy engage the player if he sees or hears him
 void AEnemyCharacter::AgentEngage()
 {
 	if (bCanSeeActor || bCanHearActor)
@@ -109,7 +114,7 @@ void AEnemyCharacter::AgentEngage()
 	
 }
 
-
+//Enemy evade the player
 void AEnemyCharacter::AgentEvade()
 {
 	
@@ -124,6 +129,7 @@ void AEnemyCharacter::AgentEvade()
 	}
 }
 
+//if player is sensed (seen/heard), player is detected
 void AEnemyCharacter::SensePlayer(AActor* SensedActor, FAIStimulus Stimulus)
 {
 	if (Stimulus.WasSuccessfullySensed())
