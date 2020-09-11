@@ -4,8 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "NavigationNode.h"
-
-#include "PlayerCharacter.h"
 #include "GameFramework/Character.h"
 #include "AIManager.h"
 #include "Perception/AIPerceptionComponent.h"
@@ -37,48 +35,42 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<ANavigationNode*> Path;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ANavigationNode* CurrentNode;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	AAIManager* Manager;
 
-	UPROPERTY(VisibleAnywhere)
-		APlayerCharacter* Player;
-
-
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UAIPerceptionComponent* PerceptionComponent;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	AgentState CurrentAgentState;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	AActor* DetectedActor;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bCanSeeActor;
-
-	UPROPERTY(VisibleAnywhere)
-		bool bCanHearActor;
-
+	UPROPERTY(BlueprintReadWrite)
 	UHealthComponent* HealthComponent;
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void AgentPatrol();
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void AgentEngage();
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void AgentEvade();
 	UFUNCTION()
 	void SensePlayer(AActor* ActorSensed, FAIStimulus Stimulus);
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void Fire(FVector FireDirection);
+	UFUNCTION(BlueprintCallable)
+	void MoveAlongPath();
+	UFUNCTION(BlueprintCallable)
+	bool PathExist();
+	UFUNCTION(BlueprintCallable)
+	void EmptyPath();
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-private:
-
-	void MoveAlongPath();
-
 };

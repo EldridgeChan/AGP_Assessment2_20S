@@ -26,15 +26,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, Category="AI Properties")
+	UPROPERTY(EditAnywhere, Category="AI Properties", BlueprintReadOnly)
 	int32 NumAI;
-	UPROPERTY(VisibleAnywhere, Category = "Navigation Nodes")
+	UPROPERTY(VisibleAnywhere, Category = "Navigation Nodes", BlueprintReadOnly)
 	TArray<ANavigationNode*> AllNodes;
 	UPROPERTY(VisibleAnywhere, Category = "Agents")
 	TArray<AEnemyCharacter*> AllAgents;
 	UPROPERTY(EditAnywhere, Category = "Agents")
 	TSubclassOf<AEnemyCharacter> AgentToSpawn;
 
+	UFUNCTION(BlueprintCallable)
 	TArray<ANavigationNode*> GeneratePath(ANavigationNode* StartNode, ANavigationNode* EndNode);
 
 	/**
@@ -42,12 +43,14 @@ public:
 	@param Location - The location that you want to find the nearest node from.
 	@return NearestNode - The nearest node to the given location.
 	*/
+	UFUNCTION(BlueprintCallable)
 	ANavigationNode* FindNearestNode(const FVector& Location);
 	/**
 	Finds the furthest navigation node from the given location.
 	@param Location - The location that you want to find the furthest node from.
 	@return FurthestNode - The furthest node from the given location.
 	*/
+	UFUNCTION(BlueprintCallable)
 	ANavigationNode* FindFurthestNode(const FVector& Location);
 
 	void PopulateNodes();

@@ -31,7 +31,7 @@ void AEnemyCharacter::BeginPlay()
 void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	/*
 	if (CurrentAgentState == AgentState::PATROL)
 	{
 		AgentPatrol();
@@ -73,6 +73,8 @@ void AEnemyCharacter::Tick(float DeltaTime)
 		}
 	}
 	MoveAlongPath();
+	*/
+	
 }
 
 // Called to bind functionality to input
@@ -160,5 +162,15 @@ void AEnemyCharacter::MoveAlongPath()
 			SetActorRotation(FaceDirection);
 		}
 	}
+}
+
+bool AEnemyCharacter::PathExist()
+{
+	return Path.Num() > 0;
+}
+
+void AEnemyCharacter::EmptyPath()
+{
+	Path.Empty();
 }
 
