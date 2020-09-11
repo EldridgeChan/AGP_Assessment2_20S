@@ -51,6 +51,8 @@ public:
 	AActor* DetectedActor;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bCanSeeActor;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bCanHearActor;
 	UPROPERTY(BlueprintReadWrite)
 	UHealthComponent* HealthComponent;
 

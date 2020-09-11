@@ -74,7 +74,6 @@ void AEnemyCharacter::Tick(float DeltaTime)
 	}
 	MoveAlongPath();
 	*/
-	
 }
 
 // Called to bind functionality to input
