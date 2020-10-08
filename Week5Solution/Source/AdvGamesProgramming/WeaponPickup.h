@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Pickup.h"
+#include "WeaponManager.h"
 #include "WeaponPickup.generated.h"
 
 UENUM(BlueprintType)
@@ -43,6 +44,11 @@ public:
 		int32 MagazineSize;
 	UPROPERTY(Replicated, VisibleAnywhere, BlueprintReadOnly)
 		float WeaponAccuracy;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		AWeaponManager* Manager;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		ANavigationNode* CurrentNode;
 
 private:
 
