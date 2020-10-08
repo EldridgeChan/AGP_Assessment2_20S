@@ -32,7 +32,7 @@ void AEnemyCharacter::BeginPlay()
 void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
+	/*
 	if (CurrentAgentState == AgentState::PATROL)
 	{
 		AgentPatrol();
@@ -74,7 +74,8 @@ void AEnemyCharacter::Tick(float DeltaTime)
 		}
 	}
 	MoveAlongPath();
-	
+	*/
+
 }
 
 // Called to bind functionality to input
@@ -116,7 +117,7 @@ void AEnemyCharacter::AgentEvade()
 	if (bCanSeeActor)
 	{
 		FVector DirectionToTarget = DetectedActor->GetActorLocation() - GetActorLocation();
-		//Fire(DirectionToTarget);
+		Fire(DirectionToTarget);
 		if (Path.Num() == 0)
 		{
 			Path = Manager->GeneratePath(CurrentNode, Manager->FindFurthestNode(DetectedActor->GetActorLocation()));
