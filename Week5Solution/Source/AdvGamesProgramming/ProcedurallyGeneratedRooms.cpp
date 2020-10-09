@@ -19,8 +19,8 @@ void AProcedurallyGeneratedRooms::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ClearMap();
-	GenerateMapIndex();
+	//ClearMap();
+	//GenerateMapIndex();
 	GenerateMap();
 }
 
@@ -30,10 +30,10 @@ void AProcedurallyGeneratedRooms::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	if (bRegenerateMap) {
+		bRegenerateMap = false;
 		ClearMap();
 		GenerateMapIndex();
-		GenerateMap();
-		bRegenerateMap = false;
+		//GenerateMap();
 	}
 }
 
