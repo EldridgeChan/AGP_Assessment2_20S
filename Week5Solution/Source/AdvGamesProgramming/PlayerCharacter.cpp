@@ -1,9 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "PlayerCharacter.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "ThisGameMode.h"
 #include "Engine/World.h"
 
 // Sets default values
@@ -82,3 +84,15 @@ void APlayerCharacter::SprintEnd()
 	GetCharacterMovement()->MaxWalkSpeed /= SprintMultiplier;
 }
 
+void APlayerCharacter::OnDeath()
+{
+	if (GetLocalRole() == ROLE_Authority)
+	{
+		AThisGameMode* GameMode = Cast<AThisGameMode>(GetWorld()->GetAuthGameMode());
+		if (GameMode)
+		{
+			GameMode->Respawn(GetController());
+		}
+	}
+
+}

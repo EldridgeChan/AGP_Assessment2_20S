@@ -18,7 +18,6 @@ APickupManager::APickupManager()
 void APickupManager::BeginPlay()
 {
 	Super::BeginPlay();
-
 	GetWorldTimerManager().SetTimer(WeaponSpawnTimer, this, &APickupManager::SpawnWeaponPickup, FrequencyOfWeaponPickupSpawns, true, 0.0f);
 }
 
@@ -54,8 +53,11 @@ void APickupManager::SpawnWeaponPickup()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Unable to spawn weapon pickup."));
 	}
-
-
-
 }
+
+
+
+
+
+
 

@@ -3,6 +3,7 @@
 
 #include "EnemyCharacter.h"
 #include "EngineUtils.h"
+#include "ThisGameMode.h"
 #include "Engine/Engine.h"
 
 // Sets default values
@@ -182,3 +183,15 @@ void AEnemyCharacter::EmptyPath()
 	Path.Empty();
 }
 
+void AEnemyCharacter::OnDeath()
+{
+	if (GetLocalRole() == ROLE_Authority)
+	{
+		AThisGameMode* GameMode = Cast<AThisGameMode>(GetWorld()->GetAuthGameMode());
+		if (GameMode)
+		{
+			GameMode->Respawn(GetController());
+		}
+	}
+
+}

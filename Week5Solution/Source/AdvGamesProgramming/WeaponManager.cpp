@@ -3,10 +3,10 @@
 
 #include "WeaponManager.h"
 #include "EngineUtils.h"
-#include "EnemyCharacter.h"
 #include "Engine/World.h"
 #include "WeaponPickup.h"
-#include "Math/UnrealMathUtility.h"
+#include "TimerManager.h"
+#include "Engine/GameEngine.h"
 
 // Sets default values
 AWeaponManager::AWeaponManager()
@@ -21,8 +21,10 @@ void AWeaponManager::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//Populate a random nodes with a random weapon from legendary to common
 	PopulateNodes();
 	CreateWeapon();
+	GetWorldTimerManager().SetTimer(WeaponSpawnTimer, this, &AWeaponManager::CreateWeapon, FrequencyOfWeaponPickupSpawns, true, 0.0f);
 }
 
 // Called every frame
@@ -32,7 +34,15 @@ void AWeaponManager::Tick(float DeltaTime)
 
 }
 
+//spawn the weapon on a random navnode and then make them respawn on another navnode
+void AWeaponManager::Init(const TArray<ANavigationNode*>& SpawnLocations, TSubclassOf<APickup> WeaponPickup, float FrequencyOfSpawn)
+{
+	AllNodes = SpawnLocations;
+	WeaponToSpawn = WeaponPickup;
+	FrequencyOfWeaponPickupSpawns = FrequencyOfSpawn;
+}
 
+//populate the node with a weapon
 void AWeaponManager::PopulateNodes()
 {
 	for (TActorIterator<ANavigationNode> It(GetWorld()); It; ++It)
@@ -41,16 +51,31 @@ void AWeaponManager::PopulateNodes()
 	}
 }
 
+//create a weapon on a random navnode
 void AWeaponManager::CreateWeapon()
 {
-	for (int32 i = 0; i < NumAI; i++)
-	{
+	
 		int32 RandIndex = FMath::RandRange(0, AllNodes.Num() - 1);
-		AWeaponPickup* Weapon = GetWorld()->SpawnActor<AWeaponPickup>(WeaponToSpawn, AllNodes[RandIndex]->GetActorLocation(), FRotator(0.f, 0.f, 0.f));
-		Weapon->Manager = this;
-		Weapon->CurrentNode = AllNodes[RandIndex];
-		WeaponList.Add(Weapon);
-	}
+		if(AWeaponPickup* Weapon = GetWorld()->SpawnActor<AWeaponPickup>(WeaponToSpawn, AllNodes[RandIndex]->GetActorLocation(), FRotator(0.f, 0.f, 0.f)))
+		{ 
+			Weapon->Manager = this;
+			Weapon->CurrentNode = AllNodes[RandIndex];
+			WeaponList.Add(Weapon);
+			//weapon stays for 20 seconds then disapear
+			Weapon->SetLifeSpan(20.0f);
+				if (GEngine)
+					{
+					//print on screen a message when the weapon is spawned
+						GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Green, FString::Printf(TEXT("Pickup Spawned")));
+					}
+
+				else
+					{
+						UE_LOG(LogTemp, Warning, TEXT("Unable to spawn weapon pickup."));
+					}
+		}
 }
+
+
 
 

@@ -28,14 +28,24 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "AI Properties", BlueprintReadOnly)
 		int32 NumAI;
+	//An array of navigation nodes
 	UPROPERTY(VisibleAnywhere, Category = "Navigation Nodes", BlueprintReadOnly)
 		TArray<ANavigationNode*> AllNodes;
+	//an array of weapons from legendary to common
 	UPROPERTY(VisibleAnywhere, Category = "Weapons")
 		TArray<AWeaponPickup*> WeaponList;
 	UPROPERTY(EditAnywhere, Category = "Weapons")
 		TSubclassOf<AWeaponPickup> WeaponToSpawn;
 
 	void PopulateNodes();
-	void CreateWeapon();
+	
+	
+	void Init(const TArray<ANavigationNode*>& SpawnLocations, TSubclassOf<class APickup> WeaponPickup, float FrequencyOfSpawn);
 
+	
+private: 
+	TSubclassOf<class APickup> WeaponPickupClass;
+	float FrequencyOfWeaponPickupSpawns;
+	FTimerHandle WeaponSpawnTimer;
+	void CreateWeapon();
 };

@@ -2,6 +2,8 @@
 
 
 #include "HealthComponent.h"
+#include "PlayerCharacter.h"
+#include "EnemyCharacter.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -46,7 +48,11 @@ void UHealthComponent::OnTakeDamage(float Damage)
 
 void UHealthComponent::OnDeath()
 {
-
+	AEnemyCharacter* OwningPlayerCharacter = Cast<AEnemyCharacter>(GetOwner());
+	if (OwningPlayerCharacter)
+	{
+		OwningPlayerCharacter->OnDeath();
+	}
 }
 
 float UHealthComponent::HealthPercentageRemaining()

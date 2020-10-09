@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
+
+#include "WeaponManager.h"
+
 #include "Pickup.generated.h"
 
 UCLASS()
@@ -34,4 +37,5 @@ public:
 	UPROPERTY()
 		UBoxComponent* PickupBoundingBox;
 
+	
 };

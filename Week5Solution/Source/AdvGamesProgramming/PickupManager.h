@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "PickupManager.generated.h"
 
+class AWeaponPickup;
+
 UCLASS()
 class ADVGAMESPROGRAMMING_API APickupManager : public AActor
 {
