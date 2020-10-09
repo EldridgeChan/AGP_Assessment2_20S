@@ -36,6 +36,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void OnDeath();
+	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<ANavigationNode*> Path;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -72,8 +75,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool PathExist();
 	UFUNCTION(BlueprintCallable)
-	void EmptyPath();
+		void EmptyPath();
 
+		
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };
