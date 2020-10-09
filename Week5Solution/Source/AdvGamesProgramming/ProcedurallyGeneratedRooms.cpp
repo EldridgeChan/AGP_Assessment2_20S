@@ -39,6 +39,7 @@ void AProcedurallyGeneratedRooms::Tick(float DeltaTime)
 
 void AProcedurallyGeneratedRooms::GenerateMapIndex()
 {
+	//Initialize All Arrays
 	for (int Col = 0; Col < MapYNum; Col++) {
 		for (int Row = 0; Row < MapXNum; Row++) {
 			NavNodes.Add(GetWorld()->SpawnActor<ANavigationNode>(FVector(Row * 1000.0f, Col * 1000.0f, 0), FRotator::ZeroRotator));
@@ -48,8 +49,10 @@ void AProcedurallyGeneratedRooms::GenerateMapIndex()
 		}
 	}
 
+	//Set up Navigation Nodes Connectivity Randomly
 	for (int Col = 0; Col < MapYNum; Col++) {
 		for (int Row = 0; Row < MapXNum; Row++) {
+			//1: Link to the Left Node, 2: Link to Forward Node 3: link to both nodes
 			int DoorNum = FMath::RandRange(1, 3);
 
 			if (DoorNum > 1 && Row < MapXNum - 1) {
@@ -60,6 +63,8 @@ void AProcedurallyGeneratedRooms::GenerateMapIndex()
 			}
 		}
 	}
+	//Check all node is reachable from the starting room.
+	//Since the above Linkage can cause someroom unreachable Therefore, Change reachability then link them
 	ChangeConnectivity(0);
 	for (int Col = 0; Col < MapYNum; Col++) {
 		for (int Row = 0; Row < MapXNum; Row++) {
@@ -86,6 +91,7 @@ void AProcedurallyGeneratedRooms::GenerateMapIndex()
 			}
 		}
 	}
+	//After setting up the connection, Calculate the information that use for generate the Static Mesh
 	RoomInfomation();
 }
 
@@ -100,11 +106,15 @@ void AProcedurallyGeneratedRooms::ChangeConnectivity(int startIndex)
 	TArray<ANavigationNode*> TempSet;
 	TempSet.Push(NavNodes[startIndex]);
 
+	//While TempSet is not empty
 	while (TempSet.Num() > 0) {
 		int TempIndex = NavNodes.Find(TempSet[TempSet.Num() - 1]);
 		TempSet.Pop();
+		//If bIsConnected is false i.e. unvisited
 		if (!bIsConnected[TempIndex]) {
+			//Mark as visited
 			bIsConnected[TempIndex] = true;
+			//get its nebourg and push into TempSet
 			for (auto It = NavNodes[TempIndex]->ConnectedNodes.CreateConstIterator(); It; ++It) {
 				TempSet.Push(*It);
 			}
@@ -112,6 +122,7 @@ void AProcedurallyGeneratedRooms::ChangeConnectivity(int startIndex)
 	}
 }
 
+//There are 5 type of room; 0: DeadEnd 1: Corner 2: T-Sharp 3: CrossRoad 4: Striaght Road 
 void AProcedurallyGeneratedRooms::RoomInfomation()
 {
 	for (int Col = 0; Col < MapYNum; Col++) {
@@ -130,6 +141,7 @@ void AProcedurallyGeneratedRooms::RoomInfomation()
 					RoomType[Row + Col * MapXNum] = 1;
 				}
 			}
+			//Calculate its Rotation for each Room
 			CalDirection(Row + Col * MapXNum);
 		}
 	}
@@ -137,6 +149,8 @@ void AProcedurallyGeneratedRooms::RoomInfomation()
 
 void AProcedurallyGeneratedRooms::CalDirection(int Index)
 {
+	//This Array indicate the Door location of the Room.
+	//0: Back 1: Left 2:Forward 3: right
 	TArray<bool> DoorDir = { false, false, false, false };
 	for (int i = 0; i < NavNodes[Index]->ConnectedNodes.Num(); i++) {
 		int ConnectedIndex = NavNodes.Find(NavNodes[Index]->ConnectedNodes[i]);
@@ -159,11 +173,13 @@ void AProcedurallyGeneratedRooms::CalDirection(int Index)
 		}
 	}
 
+	//For Stright Road
 	if (RoomType[Index] == 4) {
 		if (!DoorDir[0]) {
 			RoomDirection[Index] = 1;
 		}
 	}
+	//For Dead End
 	else if (RoomType[Index] == 0) {
 		int trueDoor;
 		for (int i = 0; i < DoorDir.Num(); i++) {
@@ -173,6 +189,7 @@ void AProcedurallyGeneratedRooms::CalDirection(int Index)
 		}
 		RoomDirection[Index] = trueDoor;
 	}
+	//For T-Sharp Road
 	else if (RoomType[Index] == 2) {
 		int falseDoor;
 		for (int i = 0; i < DoorDir.Num(); i++) {
@@ -182,6 +199,7 @@ void AProcedurallyGeneratedRooms::CalDirection(int Index)
 		}
 		RoomDirection[Index] = (falseDoor + 1) % 4;
 	}
+	//For Corner
 	else if (RoomType[Index] == 1) {
 		if (DoorDir[1]) {
 			if (DoorDir[2]) {
@@ -200,6 +218,7 @@ void AProcedurallyGeneratedRooms::CalDirection(int Index)
 			}
 		}
 	}
+	//The RoomDirection is initialized as 0. Therefore, no change needed for cross road
 }
 
 bool AProcedurallyGeneratedRooms::ShouldTickIfViewportsOnly() const
