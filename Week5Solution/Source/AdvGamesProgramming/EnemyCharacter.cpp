@@ -33,7 +33,7 @@ void AEnemyCharacter::BeginPlay()
 void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
+	/*
 	//Enemy in patrol state
 	if (CurrentAgentState == AgentState::PATROL)
 	{
@@ -78,7 +78,7 @@ void AEnemyCharacter::Tick(float DeltaTime)
 		}
 	}
 	MoveAlongPath();
-	
+	*/
 }
 
 // Called to bind functionality to input
@@ -100,7 +100,7 @@ void AEnemyCharacter::AgentPatrol()
 //Enemy engage the player if he sees or hears him
 void AEnemyCharacter::AgentEngage()
 {
-	if (bCanSeeActor || bCanHearActor)
+	if (DetectedActor && (bCanSeeActor || bCanHearActor))
 	{
 		FVector DirectionToTarget = DetectedActor->GetActorLocation() - GetActorLocation();
 		if (bCanSeeActor) 
@@ -119,7 +119,7 @@ void AEnemyCharacter::AgentEngage()
 void AEnemyCharacter::AgentEvade()
 {
 	
-	if (bCanSeeActor)
+	if (bCanSeeActor && DetectedActor)
 	{
 		FVector DirectionToTarget = DetectedActor->GetActorLocation() - GetActorLocation();
 		//Fire(DirectionToTarget);

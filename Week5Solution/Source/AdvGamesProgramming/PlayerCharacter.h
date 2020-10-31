@@ -5,6 +5,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "HealthComponent.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -24,6 +25,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	class UHealthComponent* HealthComponent;
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -37,6 +40,14 @@ public:
 	void SprintStart();
 	void SprintEnd();
 
+	UFUNCTION(Server, Reliable)
+	void ServerSprintStart();
+	UFUNCTION(Server, Reliable)
+	void ServerSprintEnd();
+
+	UFUNCTION(Client, Reliable)
+	void HidePlayerHUD(bool bSetHUDVisibility);
+
 private:
 	UPROPERTY(EditInstanceOnly)
 	float LookSensitivity;
@@ -46,4 +57,8 @@ private:
 
 	UPROPERTY(EditInstanceOnly)
 	float SprintMultiplier;
+
+protected:
+	float SprintMovementSpeed;
+	float NormalMovementSpeed;
 };

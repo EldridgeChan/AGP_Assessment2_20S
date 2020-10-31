@@ -42,6 +42,7 @@ void AProcedurallyGeneratedRooms::GenerateMapIndex()
 	//Initialize All Arrays
 	for (int Col = 0; Col < MapYNum; Col++) {
 		for (int Row = 0; Row < MapXNum; Row++) {
+			Vertices.Add(FVector(Row * 1000.0f, Col * 1000.0f, 0));
 			NavNodes.Add(GetWorld()->SpawnActor<ANavigationNode>(FVector(Row * 1000.0f, Col * 1000.0f, 0), FRotator::ZeroRotator));
 			bIsConnected.Add(false);
 			RoomType.Add(4);

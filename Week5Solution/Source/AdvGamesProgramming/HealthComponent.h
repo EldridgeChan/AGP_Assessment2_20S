@@ -27,7 +27,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 	float MaxHealth;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(ReplicatedUsing = UpdateHealthBar, BlueprintReadWrite)
 	float CurrentHealth;
 
 	UFUNCTION(BlueprintCallable)
@@ -38,4 +38,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	float HealthPercentageRemaining();
+
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+private:
+	UFUNCTION()
+	void UpdateHealthBar();
 };

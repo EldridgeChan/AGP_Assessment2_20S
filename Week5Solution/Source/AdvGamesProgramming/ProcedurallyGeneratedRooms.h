@@ -42,6 +42,8 @@ public:
 	//An Array store if the Room is Reachable from the starting room
 	UPROPERTY(VisibleAnywhere)
 	TArray<bool> bIsConnected;
+	UPROPERTY(VisibleAnywhere)
+	TArray<FVector> Vertices;
 	//An boolean value serve as a button to regenerate the Navigation Node and their Connection
 	UPROPERTY(EditAnywhere)
 	bool bRegenerateMap;

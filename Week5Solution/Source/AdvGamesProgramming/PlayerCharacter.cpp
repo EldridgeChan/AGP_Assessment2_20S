@@ -6,7 +6,11 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "ThisGameMode.h"
+#include "Net/UnrealNetwork.h"
 #include "Engine/World.h"
+#include "HealthComponent.h"
+#include "MultiplayerGameMode.h"
+#include "PlayerHUD.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -14,18 +18,26 @@ APlayerCharacter::APlayerCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	AutoPossessPlayer = EAutoReceiveInput::Player0;
+	//AutoPossessPlayer = EAutoReceiveInput::Player0;
 	bUseControllerRotationPitch = true;
 
 	LookSensitivity = 75.0f;
 	MoveSpeed = 150.0f;
 	SprintMultiplier = 1.5f;
+
+	SprintMovementSpeed = GetCharacterMovement()->MaxWalkSpeed * SprintMultiplier;
+	NormalMovementSpeed = GetCharacterMovement()->MaxWalkSpeed;
 }
 
 // Called when the game starts or when spawned
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	HealthComponent = FindComponentByClass<UHealthComponent>();
+	if (HealthComponent)
+	{
+		HealthComponent->SetIsReplicated(true);
+	}
 	
 }
 
@@ -77,22 +89,48 @@ void APlayerCharacter::Turn(float Value)
 void APlayerCharacter::SprintStart()
 {
 	GetCharacterMovement()->MaxWalkSpeed *= SprintMultiplier;
+	ServerSprintStart();
 }
 
 void APlayerCharacter::SprintEnd()
 {
 	GetCharacterMovement()->MaxWalkSpeed /= SprintMultiplier;
+	ServerSprintEnd();
 }
 
 void APlayerCharacter::OnDeath()
 {
 	if (GetLocalRole() == ROLE_Authority)
 	{
-		AThisGameMode* GameMode = Cast<AThisGameMode>(GetWorld()->GetAuthGameMode());
+		AMultiplayerGameMode* GameMode = Cast<AMultiplayerGameMode>(GetWorld()->GetAuthGameMode());
 		if (GameMode)
 		{
 			GameMode->Respawn(GetController());
 		}
 	}
 
+}
+
+void APlayerCharacter::HidePlayerHUD_Implementation(bool bSetHUDVisibility)
+{
+	if (GetLocalRole() == ROLE_AutonomousProxy || (GetLocalRole() == ROLE_Authority && IsLocallyControlled()))
+	{
+		if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+		{
+			if (APlayerHUD* HUD = Cast<APlayerHUD>(PlayerController->GetHUD()))
+			{
+				HUD->SetHideWidgets(bSetHUDVisibility);
+			}
+		}
+	}
+}
+
+void APlayerCharacter::ServerSprintStart_Implementation()
+{
+	GetCharacterMovement()->MaxWalkSpeed = SprintMovementSpeed;
+}
+
+void APlayerCharacter::ServerSprintEnd_Implementation()
+{
+	GetCharacterMovement()->MaxWalkSpeed = NormalMovementSpeed;
 }
