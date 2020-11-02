@@ -191,13 +191,12 @@ void AEnemyCharacter::EmptyPath()
 
 void AEnemyCharacter::OnDeath()
 {
-	if (GetLocalRole() == ROLE_Authority)
+	//UE_LOG(LogTemp, Warning, TEXT("AI Died"));
+	
+	if (Manager)
 	{
-		AThisGameMode* GameMode = Cast<AThisGameMode>(GetWorld()->GetAuthGameMode());
-		if (GameMode)
-		{
-			GameMode->Respawn(GetController());
-		}
+		Manager->AllAgents.Remove(this);
+		Manager->CreateAgents();
+		SetLifeSpan(0.1f);
 	}
-
 }

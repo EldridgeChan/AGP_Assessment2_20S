@@ -23,6 +23,7 @@ APlayerHUD::APlayerHUD()
 		{
 			CurrentPlayerHUDWidget->AddToViewport();
 			HealthProgressBar = Cast<UProgressBar>(CurrentPlayerHUDWidget->GetWidgetFromName(TEXT("ProgHealthBar")));
+			ScoreTextBlock = Cast<UTextBlock>(CurrentPlayerHUDWidget->GetWidgetFromName(TEXT("TextScore")));
 		}
 	}
 }
@@ -31,6 +32,14 @@ void APlayerHUD::SetPlayerHealthBarPercent(float Percent)
 {
 	if (HealthProgressBar) {
 		HealthProgressBar->SetPercent(Percent);
+	}
+}
+
+void APlayerHUD::SetScoreText(int32 Score)
+{
+	if (ScoreTextBlock)
+	{
+		ScoreTextBlock->SetText(FText::FromString(FString::Printf(TEXT("Score: %d"), Score)));
 	}
 }
 

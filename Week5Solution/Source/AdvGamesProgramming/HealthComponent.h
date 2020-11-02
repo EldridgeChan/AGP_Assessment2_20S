@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "PlayerCharacter.h"
+#include "MultiplayerPlayerState.h"
+#include "GameFramework/PlayerState.h"
 #include "HealthComponent.generated.h"
 
 
@@ -31,13 +34,16 @@ public:
 	float CurrentHealth;
 
 	UFUNCTION(BlueprintCallable)
-	void OnTakeDamage(float Damage);
+	void OnTakeDamage(float Damage, APlayerCharacter* HitFrom);
 
 	UFUNCTION(BlueprintCallable)
 	void OnDeath();
 
 	UFUNCTION(BlueprintCallable)
 	float HealthPercentageRemaining();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void ClientSetScoreText(APlayerCharacter* HitFrom, AMultiplayerPlayerState* HitPlayerState);
 
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 

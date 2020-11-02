@@ -2,7 +2,6 @@
 
 
 #include "HealthComponent.h"
-#include "PlayerCharacter.h"
 #include "EnemyCharacter.h"
 #include "Engine/GameEngine.h"
 #include "Net/UnrealNetwork.h"
@@ -45,12 +44,33 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	}*/
 }
 
-void UHealthComponent::OnTakeDamage(float Damage)
+void UHealthComponent::OnTakeDamage(float Damage, APlayerCharacter* HitFrom)
 {
 	CurrentHealth -= Damage;
 	if (CurrentHealth <= 0) 
 	{
 		CurrentHealth = 0;
+		AEnemyCharacter* OwningEnemyCharacter = Cast<AEnemyCharacter>(GetOwner());
+		if (HitFrom && OwningEnemyCharacter)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Die with player hit"));
+			AMultiplayerPlayerState* HitPlayerState = Cast<AMultiplayerPlayerState>(HitFrom->GetPlayerState());
+			if (HitPlayerState)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Player State Found"));
+				HitPlayerState->Score += 10;
+				//UE_LOG(LogTemp, Warning, TEXT("%d"), HitPlayerState->PlayerScore);
+				if (HitFrom->IsLocallyControlled())
+				{
+					APlayerHUD* HUD = Cast<APlayerHUD>(UGameplayStatics::GetPlayerController(GetWorld(), 0)->GetHUD());
+					if (HUD)
+					{
+						HUD->SetScoreText(HitPlayerState->Score);
+					}
+				}
+			}
+			ClientSetScoreText(HitFrom, HitPlayerState);
+		}
 		OnDeath();
 	}
 
@@ -60,12 +80,29 @@ void UHealthComponent::OnTakeDamage(float Damage)
 	}
 }
 
+void UHealthComponent::ClientSetScoreText_Implementation(APlayerCharacter* HitFrom, AMultiplayerPlayerState* HitPlayerState)
+{
+	if (HitFrom && HitPlayerState && HitFrom->IsLocallyControlled())
+	{
+		APlayerHUD* HUD = Cast<APlayerHUD>(UGameplayStatics::GetPlayerController(GetWorld(), 0)->GetHUD());
+		if (HUD)
+		{
+			HUD->SetScoreText(HitPlayerState->Score);
+		}
+	}
+}
+
 void UHealthComponent::OnDeath()
 {
 	APlayerCharacter* OwningPlayerCharacter = Cast<APlayerCharacter>(GetOwner());
+	AEnemyCharacter* OwningEnemyCharacter = Cast<AEnemyCharacter>(GetOwner());
 	if (OwningPlayerCharacter)
 	{
 		OwningPlayerCharacter->OnDeath();
+	}
+	if (OwningEnemyCharacter)
+	{
+		OwningEnemyCharacter->OnDeath();
 	}
 }
 

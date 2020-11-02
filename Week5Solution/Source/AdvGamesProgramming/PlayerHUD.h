@@ -21,8 +21,11 @@ public:
 
 	void SetHideWidgets(bool bIsHidden);
 
+	void SetScoreText(int32 Score);
+
 private:
 	TSubclassOf<class UUserWidget> PlayerHUDClass;
 	UUserWidget* CurrentPlayerHUDWidget;
 	class UProgressBar* HealthProgressBar;
+	class UTextBlock* ScoreTextBlock;
 };
