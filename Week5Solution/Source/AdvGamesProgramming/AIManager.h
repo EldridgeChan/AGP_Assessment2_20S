@@ -55,5 +55,9 @@ public:
 
 	void PopulateNodes();
 	void CreateAgents();
+	UFUNCTION(Server, Reliable)
+	void ServerCreateAgents();
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastCreateAgents();
 
 };

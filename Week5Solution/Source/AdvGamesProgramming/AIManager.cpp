@@ -6,6 +6,7 @@
 #include "EnemyCharacter.h"
 #include "Engine/World.h"
 #include "Math/UnrealMathUtility.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values
 AAIManager::AAIManager()
@@ -102,7 +103,7 @@ void AAIManager::PopulateNodes()
 
 void AAIManager::CreateAgents()
 {
-	for (int32 i = 0; i < NumAI; i++)
+	/*for (int32 i = 0; i < NumAI; i++)
 	{
 		int32 RandIndex = FMath::RandRange(0, AllNodes.Num()-1);
 		//AEnemyCharacter* Agent = GetWorld()->SpawnActor<AEnemyCharacter>(AgentToSpawn, AllNodes[RandIndex]->GetActorLocation(), FRotator(0.f, 0.f, 0.f));
@@ -110,6 +111,37 @@ void AAIManager::CreateAgents()
 		Agent->Manager = this;
 		Agent->CurrentNode = AllNodes[RandIndex];
 		AllAgents.Add(Agent);
+	}*/
+	ServerCreateAgents();
+	MulticastCreateAgents();
+}
+
+void AAIManager::ServerCreateAgents_Implementation()
+{
+	for (int32 i = 0; i < NumAI; i++)
+	{
+		int32 RandIndex = FMath::RandRange(0, AllNodes.Num() - 1);
+		//AEnemyCharacter* Agent = GetWorld()->SpawnActor<AEnemyCharacter>(AgentToSpawn, AllNodes[RandIndex]->GetActorLocation(), FRotator(0.f, 0.f, 0.f));
+		AEnemyCharacter* Agent = GetWorld()->SpawnActor<AEnemyCharacter>(AgentToSpawn, FVector(AllNodes[RandIndex]->GetActorLocation().X, AllNodes[RandIndex]->GetActorLocation().Y, 300.0f), FRotator(0.f, 0.f, 0.f));
+		Agent->Manager = this;
+		Agent->CurrentNode = AllNodes[RandIndex];
+		AllAgents.Add(Agent);
+	}
+}
+
+void AAIManager::MulticastCreateAgents_Implementation()
+{
+	if (GetLocalRole() == ROLE_SimulatedProxy)
+	{
+		for (int32 i = 0; i < NumAI; i++)
+		{
+			int32 RandIndex = FMath::RandRange(0, AllNodes.Num() - 1);
+			//AEnemyCharacter* Agent = GetWorld()->SpawnActor<AEnemyCharacter>(AgentToSpawn, AllNodes[RandIndex]->GetActorLocation(), FRotator(0.f, 0.f, 0.f));
+			AEnemyCharacter* Agent = GetWorld()->SpawnActor<AEnemyCharacter>(AgentToSpawn, FVector(AllNodes[RandIndex]->GetActorLocation().X, AllNodes[RandIndex]->GetActorLocation().Y, 300.0f), FRotator(0.f, 0.f, 0.f));
+			Agent->Manager = this;
+			Agent->CurrentNode = AllNodes[RandIndex];
+			AllAgents.Add(Agent);
+		}
 	}
 }
 

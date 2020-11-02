@@ -33,6 +33,12 @@ void AEnemyCharacter::BeginPlay()
 void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (GetActorLocation().Z < -20) {
+		UE_LOG(LogTemp, Warning, TEXT("Character drop out of world"));
+		SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 0.0f), false, nullptr, ETeleportType::None);
+	}
+
 	/*
 	//Enemy in patrol state
 	if (CurrentAgentState == AgentState::PATROL)
